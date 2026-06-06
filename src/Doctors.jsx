@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useAppointment } from "./AppointmentContext";
-import { Star, Award, Heart, Sparkles } from "lucide-react";
+import { Star, Award, Heart } from "lucide-react";
 
 export default function Doctors() {
   const { openModal } = useAppointment();
@@ -11,6 +11,7 @@ export default function Doctors() {
       name: "Dr. Anand Chaudhary",
       title: "Founder, Crown Dental | Dental Surgeon | Implant & Smile Design Specialist",
       img: "/Images/Maledocter.webp",
+      isEmoji: false,
       badges: ["Advanced Implants", "Smile Makeovers", "Laser Dentistry", "Full Mouth Rehabilitation"],
       exp: 12,
       treatments: 4500,
@@ -20,24 +21,57 @@ export default function Doctors() {
       name: "Dr. Swati Chaudhary",
       title: "Executive Director, AngelLife Cosmetology & Wellness | Aesthetic Physician & Dental Surgeon",
       img: "/Images/Femaledocter.webp",
+      isEmoji: false,
       badges: ["Skin Rejuvenation", "Anti-Aging Treatments", "Laser Aesthetics", "Facial Contouring"],
       exp: 10,
       treatments: 3800,
       happy: 3500,
     },
     {
-      name: "Dr. Shagun Gupta",
-      title: "Dental Surgeon",
-      img: "👩‍⚕️",
-      badges: ["Pediatric Dentist", "Conservative Dentistry"],
-      exp: 6,
-      treatments: 2100,
-      happy: 2000,
+      name: "Dr. Astitva Agarwal",
+      title: "BDS, MDS | Orthodontist | Oral Cancer Specialist & Maxillofacial Surgeon",
+      img: "/Images/Dr-Astitva-Agarwal.jpg",
+      isEmoji: false,
+      badges: ["Oral Cancer Specialist", "Maxillofacial Surgeon", "Full Mouth Rehab", "Orthodontics"],
+      exp: 8,
+      treatments: 2800,
+      happy: 2600,
+    },
+    {
+      name: "Dr. Rahul Seth",
+      title: "BDS, MDS (Gold Medallist) | Oral & Maxillofacial Surgeon | Certified Implantologist",
+      img: "/Images/Dr-Rahul-Seth.jpg",
+      isEmoji: false,
+      badges: ["Oral & Maxillofacial Surgeon", "Certified Implantologist", "Advanced Trauma", "Gold Medallist"],
+      exp: 9,
+      treatments: 3200,
+      happy: 3000,
+    },
+    {
+      name: "Dr. (Col) Satyam Singh",
+      title: "Senior Dental Consultant | Military Dental Specialist",
+      img: "/Images/Dr-Satyam-Singh.jpg",
+      isEmoji: false,
+      badges: ["Military Dental Specialist", "Senior Consultant", "Veteran Clinician", "Complex Cases"],
+      exp: 20,
+      treatments: 6000,
+      happy: 5500,
+    },
+    {
+      name: "Dr. Prashashta Mishra",
+      title: "BDS, MDS (Orthodontics) | Orthodontist & Smile Specialist",
+      img: "/Images/Dr-Prashashta-Mishra.jpg",
+      isEmoji: false,
+      badges: ["Orthodontics", "Smile Specialist", "Braces & Aligners", "Certified Expert"],
+      exp: 7,
+      treatments: 2400,
+      happy: 2200,
     },
     {
       name: "Dr. Shashwat Kumar",
       title: "Dental Surgeon",
-      img: "👨‍⚕️",
+      img: "/Images/DrShashwatKumar.webp.jpg",
+      isEmoji: false,
       badges: ["General Dentistry", "Root Canal Specialist"],
       exp: 4,
       treatments: 1500,
@@ -49,7 +83,7 @@ export default function Doctors() {
   useEffect(() => {
     const fadeEls = document.querySelectorAll(".fade");
     fadeEls.forEach((el, i) =>
-      setTimeout(() => el.classList.add("visible"), i * 200)
+      setTimeout(() => el.classList.add("visible"), i * 150)
     );
   }, []);
 
@@ -114,35 +148,18 @@ export default function Doctors() {
             }}
           >
             {/* IMAGE */}
-            {doc.img.includes('👨‍⚕️') || doc.img.includes('👩‍⚕️') ? (
-              <div
-                style={{
-                  width: "100%",
-                  height: 340,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: 120,
-                  background: "linear-gradient(135deg, #f2ebe0 0%, #e8dcc6 100%)",
-                  borderRadius: 16,
-                  marginBottom: 15,
-                }}
-              >
-                {doc.img}
-              </div>
-            ) : (
-              <img
-                src={doc.img}
-                alt={doc.name}
-                style={{
-                  width: "100%",
-                  height: 340,
-                  objectFit: "cover",
-                  borderRadius: 16,
-                  marginBottom: 15,
-                }}
-              />
-            )}
+            <img
+              src={doc.img}
+              alt={doc.name}
+              style={{
+                width: "100%",
+                height: 340,
+                objectFit: "cover",
+                objectPosition: "top center",
+                borderRadius: 16,
+                marginBottom: 15,
+              }}
+            />
 
             {/* NAME */}
             <h3 style={{ fontSize: 22, fontWeight: 700, color: "#6f6048" }}>
@@ -246,7 +263,6 @@ export default function Doctors() {
 
 /* ---------------- COUNTER COMPONENT ---------------- */
 function Counter({ icon, label, value }) {
-  // Format numbers
   const displayValue =
     value > 1000 ? `${(value / 1000).toFixed(1)}k+` : `${value}+`;
 
