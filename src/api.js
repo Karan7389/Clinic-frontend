@@ -1,26 +1,13 @@
 import axios from "axios";
 
-// Determine the base URL based on environment
-const getBaseURL = () => {
-  // If REACT_APP_API_URL is set in .env, use it
-  if (process.env.REACT_APP_API_URL) {
-    return process.env.REACT_APP_API_URL;
-  }
-
-  // For production (when running on same domain with Nginx)
-  if (
-    window.location.hostname !== "localhost" &&
-    window.location.hostname !== "127.0.0.1"
-  ) {
-    return "/api";
-  }
-
-  // For local development
-  return "http://localhost:5000/api";
-};
+const BASE_URL =
+  window.location.hostname === "localhost" ||
+  window.location.hostname === "127.0.0.1"
+    ? "http://localhost:5000/api"
+    : "https://clinic-backend-production-82da.up.railway.app/api";
 
 const API = axios.create({
-  baseURL: getBaseURL(),
+  baseURL: BASE_URL,
 });
 
 API.interceptors.request.use((config) => {
