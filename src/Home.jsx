@@ -71,69 +71,115 @@ const Home = () => {
       <Hero />
 
       {/* =========================================================
-    MEET OUR EXPERT DENTAL TEAM
-========================================================== */}
-<section className="doctors-section">
-  <div className="section-inner">
+          MEET SENIOR DOCTORS
+      ========================================================== */}
+      <section className="core-doctors-section">
+        <div className="section-inner">
+          <div className="section-header" style={{ textAlign: "center", marginBottom: "36px" }}>
+            <h2>Meet Our Senior Doctors</h2>
+            <p style={{ maxWidth: "760px", margin: "0 auto" }}>
+              Our clinical leadership brings decades of experience and compassionate care.
+            </p>
+          </div>
+          <div className="core-doctors-grid">
+            <article className="core-doctor-card reveal-on-scroll">
+              <div className="core-doctor-photo">
+                <img src="/Images/Maledocter.webp" alt="Dr Anand" loading="lazy" />
+              </div>
+              <div className="core-doctor-body">
+                <h3>Dr. Anand Chaudhary</h3>
+                <p className="doctor-qualification">
+                  Founder, Crown Dental | Dental Surgeon | Implant & Smile Design Specialist
+                </p>
+                <p style={{ marginBottom: "16px", lineHeight: "1.6" }}>
+                  Renowned for precision-driven dentistry and aesthetic excellence, Dr. Anand Chaudhary leads Crown Dental with a vision of delivering advanced, patient-centric care.
+                  {!expandedDoctor.anand && (
+                    <>
+                      {" "}
+                      <button 
+                        className="doc-btn-read-more-inline" 
+                        onClick={() => setExpandedDoctor(prev => ({ ...prev, anand: !prev.anand }))}
+                      >
+                        Read More →
+                      </button>
+                    </>
+                  )}
+                </p>
+                {expandedDoctor.anand && (
+                  <>
+                    <p style={{ marginBottom: "16px", lineHeight: "1.6" }}>
+                      Holding a BDS and MBA in Hospital Administration, he combines clinical expertise with strategic leadership to create a modern, technology-driven dental practice.
+                    </p>
+                    <p style={{ marginBottom: "16px", lineHeight: "1.6" }}>
+                      With specialized expertise in implantology, smile design, and laser dentistry, he focuses on minimally invasive, result-oriented treatments tailored to each patient. His approach blends science with artistry—enhancing not just oral health, but overall confidence.
+                    </p>
+                    <p style={{ fontWeight: "600", marginBottom: "16px", color: "#6f6048" }}>
+                      Signature Expertise: Advanced Implants | Smile Makeovers | Laser Dentistry | Full Mouth Rehabilitation
+                    </p>
+                    <button 
+                      className="doc-btn-read-more-inline" 
+                      onClick={() => setExpandedDoctor(prev => ({ ...prev, anand: !prev.anand }))}
+                    >
+                      Read Less ↑
+                    </button>
+                  </>
+                )}
+                <div className="doc-btn-container">
+                  <button className="doc-btn" onClick={() => setLeadOpen(true)}>Book a Consultation</button>
+                </div>
+              </div>
+            </article>
 
-    <div className="section-header" style={{ textAlign: "center", marginBottom: "48px" }}>
-      <h2>Meet Our Expert Dental Team</h2>
-      <p style={{ maxWidth: "760px", margin: "0 auto" }}>
-        Our experienced specialists are dedicated to providing you with exceptional care
-        and lasting results.
-      </p>
-    </div>
-
-    <div className="doctors-grid">
-      
-      <article className="doctor-card reveal-on-scroll" data-reveal-delay="0">
-        <div className="doctor-image-placeholder">
-          <img src="/Images/Dr-Astitva-Agarwal.jpg" alt="Dr. Astitva Agarwal" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "inherit" }} />
+            <article className="core-doctor-card reveal-on-scroll">
+              <div className="core-doctor-photo">
+                <img src="/Images/Femaledocter.webp" alt="Dr Swati" loading="lazy" />
+              </div>
+              <div className="core-doctor-body">
+                <h3>Dr. Swati Chaudhary</h3>
+                <p className="doctor-qualification">
+                  Executive Director, AngelLife Cosmetology & Wellness | Aesthetic Physician & Dental Surgeon
+                </p>
+                <p style={{ marginBottom: "16px", lineHeight: "1.6" }}>
+                  Known for her refined aesthetic sense and clinical precision, Dr. Swati Chaudhary brings a sophisticated approach to modern cosmetology and wellness.
+                  {!expandedDoctor.swati && (
+                    <>
+                      {" "}
+                      <button 
+                        className="doc-btn-read-more-inline" 
+                        onClick={() => setExpandedDoctor(prev => ({ ...prev, swati: !prev.swati }))}
+                      >
+                        Read More →
+                      </button>
+                    </>
+                  )}
+                </p>
+                {expandedDoctor.swati && (
+                  <>
+                    <p style={{ marginBottom: "16px", lineHeight: "1.6" }}>
+                      Holding a BDS, MBA in Hospital Administration, and MSc in Cosmetology, she seamlessly blends medical expertise with strategic leadership.
+                    </p>
+                    <p style={{ marginBottom: "16px", lineHeight: "1.6" }}>
+                      With advanced proficiency in skin rejuvenation, anti-aging therapies, laser treatments, and facial aesthetics, she delivers personalized, result-oriented solutions focused on natural enhancement. Her philosophy combines science with artistry—enhancing beauty while maintaining individuality.
+                    </p>
+                    <p style={{ fontWeight: "600", marginBottom: "16px", color: "#6f6048" }}>
+                      Signature Expertise: Skin Rejuvenation | Anti-Aging Treatments | Laser Aesthetics | Facial Contouring
+                    </p>
+                    <button 
+                      className="doc-btn-read-more-inline" 
+                      onClick={() => setExpandedDoctor(prev => ({ ...prev, swati: !prev.swati }))}
+                    >
+                      Read Less ↑
+                    </button>
+                  </>
+                )}
+                <div className="doc-btn-container">
+                  <button className="doc-btn" onClick={() => setLeadOpen(true)}>Book a Consultation</button>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
-        <h3>Dr. Astitva Agarwal</h3>
-        <p className="doctor-qualification">BDS, MDS (Orthodontics)</p>
-        <p className="doctor-specialization">Oral Cancer Specialist & Maxillofacial Surgeon</p>
-        <span className="doctor-experience">Full Mouth Rehab Specialist</span>
-      </article>
-
-      <article className="doctor-card reveal-on-scroll" data-reveal-delay="100">
-        <div className="doctor-image-placeholder">
-          <img src="/Images/Dr-Rahul-Seth.jpg" alt="Dr. Rahul Seth" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "inherit" }} />
-        </div>
-        <h3>Dr. Rahul Seth</h3>
-        <p className="doctor-qualification">BDS, MDS (Gold Medallist)</p>
-        <p className="doctor-specialization">Oral & Maxillofacial Surgeon | Certified Implantologist</p>
-        <span className="doctor-experience">Advanced Trauma Specialist</span>
-      </article>
-
-      <article className="doctor-card reveal-on-scroll" data-reveal-delay="200">
-        <div className="doctor-image-placeholder">
-          <img src="/Images/Dr-Satyam-Singh.jpg" alt="Dr. (Col) Satyam Singh" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "inherit" }} />
-        </div>
-        <h3>Dr. (Col) Satyam Singh</h3>
-        <p className="doctor-qualification">Senior Dental Consultant</p>
-        <p className="doctor-specialization">Military Dental Specialist</p>
-        <span className="doctor-experience">Veteran & Expert Clinician</span>
-      </article>
-
-      <article className="doctor-card reveal-on-scroll" data-reveal-delay="300">
-        <div className="doctor-image-placeholder">
-          <img src="/Images/Dr-Prashashta-Mishra.jpg" alt="Dr. Prashashta Mishra" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "inherit" }} />
-        </div>
-        <h3>Dr. Prashashta Mishra</h3>
-        <p className="doctor-qualification">BDS, MDS (Orthodontics)</p>
-        <p className="doctor-specialization">Orthodontist & Smile Specialist</p>
-        <span className="doctor-experience">Certified Orthodontic Expert</span>
-      </article>
-
-    </div>
-
-    <div style={{ textAlign: "center", marginTop: "48px" }}>
-      <a href="/doctors" className="btn-secondary">View All Doctors</a>
-    </div>
-
-  </div>
-</section>
+      </section>
 
       {/* =========================================================
           WHY CHOOSE US
@@ -266,63 +312,86 @@ const Home = () => {
 </section>
 
 
-     
       {/* =========================================================
-    MEET OUR EXPERT DENTAL TEAM
-========================================================== */}
-<section className="doctors-section">
-  <div className="section-inner">
+          MEET OUR EXPERT DENTAL TEAM
+      ========================================================== */}
+      <section className="doctors-section">
+        <div className="section-inner">
 
-    <div className="section-header" style={{ textAlign: "center", marginBottom: "48px" }}>
-      <h2>Meet Our Expert Dental Team</h2>
-      <p style={{ maxWidth: "760px", margin: "0 auto" }}>
-        Our experienced specialists are dedicated to providing you with exceptional care
-        and lasting results.
-      </p>
-    </div>
+          <div className="section-header" style={{ textAlign: "center", marginBottom: "48px" }}>
+            <h2>Meet Our Expert Dental Team</h2>
+            <p style={{ maxWidth: "760px", margin: "0 auto" }}>
+              Our experienced specialists are dedicated to providing you with exceptional care
+              and lasting results.
+            </p>
+          </div>
 
-    <div className="doctors-grid">
-      
-      <article className="doctor-card reveal-on-scroll" data-reveal-delay="0">
-        <div className="doctor-image-placeholder">👨‍⚕️</div>
-        <h3>Dr. Rajesh Kumar</h3>
-        <p className="doctor-qualification">BDS, MDS (Prosthodontics)</p>
-        <p className="doctor-specialization">Dental Implants & Aesthetic Dentistry</p>
-        <span className="doctor-experience">7+ Years Experience</span>
-      </article>
+          <div className="doctors-grid">
+            
+            <article className="doctor-card reveal-on-scroll" data-reveal-delay="0">
+              <div className="doctor-image-placeholder">
+                <img
+                  src="/Images/Dr-Astitva-Agarwal.jpg"
+                  alt="Dr. Astitva Agarwal"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "inherit" }}
+                />
+              </div>
+              <h3>Dr. Astitva Agarwal</h3>
+              <p className="doctor-qualification">BDS, MDS (Orthodontics)</p>
+              <p className="doctor-specialization">Oral Cancer Specialist & Maxillofacial Surgeon</p>
+              <span className="doctor-experience">Full Mouth Rehab Specialist</span>
+            </article>
 
-      <article className="doctor-card reveal-on-scroll" data-reveal-delay="100">
-        <div className="doctor-image-placeholder">👩‍⚕️</div>
-        <h3>Dr. Priya Sharma</h3>
-        <p className="doctor-qualification">BDS, MDS (Orthodontics)</p>
-        <p className="doctor-specialization">Certified Invisalign Provider</p>
-        <span className="doctor-experience">12+ Years Experience</span>
-      </article>
+            <article className="doctor-card reveal-on-scroll" data-reveal-delay="100">
+              <div className="doctor-image-placeholder">
+                <img
+                  src="/Images/Dr-Rahul-Seth.jpg"
+                  alt="Dr. Rahul Seth"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "inherit" }}
+                />
+              </div>
+              <h3>Dr. Rahul Seth</h3>
+              <p className="doctor-qualification">BDS, MDS (Gold Medallist)</p>
+              <p className="doctor-specialization">Oral & Maxillofacial Surgeon | Certified Implantologist</p>
+              <span className="doctor-experience">Advanced Trauma Specialist</span>
+            </article>
 
-      <article className="doctor-card reveal-on-scroll" data-reveal-delay="200">
-        <div className="doctor-image-placeholder">👨‍⚕️</div>
-        <h3>Dr. Amit Verma</h3>
-        <p className="doctor-qualification">BDS, MDS (Endodontics)</p>
-        <p className="doctor-specialization">Root Canal Specialist</p>
-        <span className="doctor-experience">10+ Years Experience</span>
-      </article>
+            <article className="doctor-card reveal-on-scroll" data-reveal-delay="200">
+              <div className="doctor-image-placeholder">
+                <img
+                  src="/Images/Dr-Satyam-Singh.jpg"
+                  alt="Dr. (Col) Satyam Singh"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "inherit" }}
+                />
+              </div>
+              <h3>Dr. (Col) Satyam Singh</h3>
+              <p className="doctor-qualification">Senior Dental Consultant</p>
+              <p className="doctor-specialization">Military Dental Specialist</p>
+              <span className="doctor-experience">Veteran & Expert Clinician</span>
+            </article>
 
-      <article className="doctor-card reveal-on-scroll" data-reveal-delay="300">
-        <div className="doctor-image-placeholder">👩‍⚕️</div>
-        <h3>Dr. Neha Patel</h3>
-        <p className="doctor-qualification">BDS, MDS (Pediatric Dentistry)</p>
-        <p className="doctor-specialization">Child Dental Care Expert</p>
-        <span className="doctor-experience">8+ Years Experience</span>
-      </article>
+            <article className="doctor-card reveal-on-scroll" data-reveal-delay="300">
+              <div className="doctor-image-placeholder">
+                <img
+                  src="/Images/Dr-Prashashta-Mishra.jpg"
+                  alt="Dr. Prashashta Mishra"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "inherit" }}
+                />
+              </div>
+              <h3>Dr. Prashashta Mishra</h3>
+              <p className="doctor-qualification">BDS, MDS (Orthodontics)</p>
+              <p className="doctor-specialization">Orthodontist & Smile Specialist</p>
+              <span className="doctor-experience">Certified Orthodontic Expert</span>
+            </article>
 
-    </div>
+          </div>
 
-    <div style={{ textAlign: "center", marginTop: "48px" }}>
-      <a href="/doctors" className="btn-secondary">View All Doctors</a>
-    </div>
+          <div style={{ textAlign: "center", marginTop: "48px" }}>
+            <a href="/doctors" className="btn-secondary">View All Doctors</a>
+          </div>
 
-  </div>
-</section>
+        </div>
+      </section>
 
 
       {/* =========================================================
@@ -688,6 +757,7 @@ const Home = () => {
     </div>
   </div>
 </section>
+
       {/* =========================================================
           TECHNOLOGY
       ========================================================== */}
@@ -812,5 +882,3 @@ const Home = () => {
 
 
 export default Home;
-
-
