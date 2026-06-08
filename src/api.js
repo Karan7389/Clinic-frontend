@@ -4,7 +4,7 @@ const BASE_URL =
   window.location.hostname === "localhost" ||
   window.location.hostname === "127.0.0.1"
     ? "http://localhost:5000/api"
-    : "https://clinic-backend-production-82da.up.railway.app/api";
+    : "https://clinic-backend-production-82da.up.railway.app";
 
 const API = axios.create({
   baseURL: BASE_URL,
